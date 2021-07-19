@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+
+    <style>
+        #products {
+            display: grid;
+            padding: 5%;
+            grid-template-columns: repeat(4, 20%);
+            gap: 5%;
+
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body style="background-color: rgb(195, 226, 216);">
+
+    <form id onsubmit="addProduct(event)">
+        <h1>Online jewellery Store</h1>
+        <input type="text" placeholder="Enter type of jewellery" id="name">
+        <input type="text" placeholder="URL" id="url">
+        <input type="text" placeholder="Price" id="price">
+
+        <input type="submit" />
+    </form>
+
+    <div id="products"></div>
+</body>
+
+</html>
+
+<script>
+
+
+    var products = document.getElementById("products")
+    function addProduct(e) {
+        e.preventDefault();           
+
+
+
+        var name = document.getElementById("name").value; //get value
+        var p = document.createElement("p"); //create element
+        p.innerText = name;// set value
+
+
+        var url = document.getElementById("url").value;
+        var image = document.createElement("img");
+        image.setAttribute('src', url);
+
+        var price = document.getElementById("price").value;
+        var price_p = document.createElement("p")
+        price_p.innerText = price;
+
+        var div = document.createElement("div");
+        div.append(image, p, price_p);
+
+        products.append(div);
+
+
+    }
+
+
+
+</script>
